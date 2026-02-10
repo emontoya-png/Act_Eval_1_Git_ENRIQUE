@@ -201,7 +201,19 @@ button:last-of-type {
 
 
     // Rama "eliminar"
-    
+    function deleteSelected() {
+  if (selectedId === null) {
+    setStatus("Selecciona una tarea primero.", "danger");
+    return;
+  }
+
+  tasks = tasks.filter(t => t.id !== selectedId);
+  selectedId = null;
+
+  setStatus("Tarea eliminada correctamente.", "ok");
+  render();
+}
+
     // Rama "editar"
     function editSelected() {
       
